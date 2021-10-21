@@ -3,7 +3,7 @@ pumpkin-go
 
 ```shell
 protoc --go_out=plugins=grpc:./ --go_opt=Msimple.proto=./ ./simple.proto
-protoc --go-grpc_out=plugins=grpc:./ --go_opt=Msimple.proto=./ ./simple.proto
+protoc --go-grpc_out=./ --go-grpc_opt=Msimple.proto=./ ./simple.proto
 ```
 
 ```
