@@ -28,3 +28,5 @@ Please specify either:
 See https://developers.google.com/protocol-buffers/docs/reference/go-generated#package for more information.
 
 --go-grpc_out: protoc-gen-go-grpc: Plugin failed with status code 1.
+
+the import path must contain at least one forward slash
