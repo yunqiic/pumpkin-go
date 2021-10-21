@@ -1,6 +1,7 @@
 syntax = "proto3";// 协议为proto3
 
 package proto;
+option go_package = "proto";
 
 // 定义发送请求信息
 message SimpleRequest{
