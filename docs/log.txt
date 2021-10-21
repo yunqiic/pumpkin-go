@@ -16,3 +16,15 @@ See https://grpc.io/docs/languages/go/quickstart/#regenerate-grpc-code for more 
 
 protoc --go-grpc_out=plugins=grpc:./ --go_opt=Msimple.proto=./ ./simple.proto
 Unknown flag: --go_opt
+
+
+protoc --go-grpc_out=./ ./simple.proto
+protoc-gen-go-grpc: unable to determine Go import path for "simple.proto"
+
+Please specify either:
+	• a "go_package" option in the .proto source file, or
+	• a "M" argument on the command line.
+
+See https://developers.google.com/protocol-buffers/docs/reference/go-generated#package for more information.
+
+--go-grpc_out: protoc-gen-go-grpc: Plugin failed with status code 1.
