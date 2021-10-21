@@ -6,6 +6,9 @@ protoc --go_out=plugins=grpc:./ --go_opt=Msimple.proto=./ ./simple.proto
 protoc --go-grpc_out=./ --go-grpc_opt=Msimple.proto=./ ./simple.proto
 
 protoc --go_out=./ --go-grpc_out=./ --go_opt=Msimple.proto=./ --go-grpc_opt=Msimple.proto=./ ./simple.proto
+
+go run server.go
+go run client.go
 ```
 
 ```
