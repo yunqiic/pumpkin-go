@@ -5,7 +5,7 @@ go 1.13
 require (
 	github.com/elazarl/go-bindata-assetfs v1.0.0
 	github.com/golang/protobuf v1.5.2
-	github.com/grpc-ecosystem/go-grpc-middleware v1.2.0
+	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0
 	github.com/grpc-ecosystem/grpc-gateway v1.16.0
 	github.com/mwitkow/go-proto-validators v0.3.0
 	go.uber.org/zap v1.10.0

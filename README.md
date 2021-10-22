@@ -61,6 +61,8 @@ openssl x509 -req -days 365000 \
     -out test.crt
     
 openssl x509 -text -noout -in test.crt
+
+go get github.com/grpc-ecosystem/go-grpc-middleware
 ```
 
 ```
