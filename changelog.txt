@@ -6,3 +6,4 @@
 
 2021-10-22
 1. add client stream test
+2. add stream grpc test

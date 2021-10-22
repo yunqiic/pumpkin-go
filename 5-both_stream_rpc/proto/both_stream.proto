@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "/proto;proto";
+
+message SimpleRequest {
+    string data = 1;
+}
+
+message SimpleResponse {
+    int32 code = 1;
+    string value = 2;
+}
+
+message StreamRequest {
+    string question = 1;
+}
+
+message StreamResponse {
+    string answer = 1;
+}
+
+service Stream {
+    rpc Route (SimpleRequest) returns (SimpleResponse) {};
+
+    rpc Conversations(stream StreamRequest) returns (stream StreamResponse) {};
+}
