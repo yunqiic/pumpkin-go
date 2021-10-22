@@ -28,7 +28,7 @@ openssl req -new -x509 -sha256 -key server.key -out server.pem -days 3650
 
 https://www.cnblogs.com/jackluo/p/13841286.html
 
-openssl req -new -nodes -keyout ustack.key -out ustack.csr -config openssl.cnf
+openssl req -new -nodes -keyout server.key -out server.csr -config openssl.cnf
 
 Country Name (2 letter code) [AU]:CN
 State or Province Name (full name) [Some-State]:Beijing
