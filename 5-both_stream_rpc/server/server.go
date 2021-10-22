@@ -58,7 +58,7 @@ func (s *StreamService) Conversations(srv pb.Stream_ConversationsServer) error {
 			return err
 		}
 		err = srv.Send(&pb.StreamResponse{
-			Answer: "from stream server answer: the " + strconv.Itoa(n) + "question is " + req.Question,
+			Answer: "from stream server answer: the " + strconv.Itoa(n) + " question is " + req.Question,
 		})
 		if err != nil {
 			return err
