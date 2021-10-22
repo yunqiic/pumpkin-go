@@ -106,6 +106,7 @@ x509_extensions	= v3_ca	# The extentions to add to the self signed cert
 
 [ alt_names ]
 DNS.1 = *.yunqiic.com
+DNS.2 = yunqiic.com
 
 # Passwords for private keys if not present they will be prompted for
 # input_password = secret

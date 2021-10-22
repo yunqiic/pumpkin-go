@@ -52,12 +52,12 @@ openssl req -new -sha256 \
     -subj "/C=CN/ST=Beijing/L=Beijing/O=yunqiic/OU=dev/CN=*.yunqiic.com" \
     -reqexts SAN \
     -config <(cat /System/Library/OpenSSL/openssl.cnf \
-        <(printf "[SAN]\nsubjectAltName=DNS:*.yunqiic.com")) \
+        <(printf "[SAN]\nsubjectAltName=DNS:*.yunqiic.com,DNS:yunqiic.com")) \
     -out test.csr
     
 openssl x509 -req -days 365000 \
     -in test.csr -CA ca.crt -CAkey ca.key -CAcreateserial \
-    -extfile <(printf "subjectAltName=DNS::*.yunqiic.com") \
+    -extfile <(printf "subjectAltName=DNS:*.yunqiic.com,DNS:yunqiic.com") \
     -out test.crt
     
 openssl x509 -text -noout -in test.crt
