@@ -4,7 +4,7 @@ package proto;
 option go_package = "/proto;proto";
 
 message SimpleRequest {
-    string data = 1
+    string data = 1;
 }
 
 message SimpleResponse {
