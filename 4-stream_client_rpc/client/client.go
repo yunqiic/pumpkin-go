@@ -55,10 +55,11 @@ func routeList() {
 			log.Fatalf("stream request err: %v", err)
 		}
 
-		res, err := stream.CloseAndRecv()
+		log.Println(n)
+		/*res, err := stream.CloseAndRecv()
 		if err != nil {
 			log.Fatalf("RouteList get response err: %v", err)
 		}
-		log.Println(res)
+		log.Println(res)*/
 	}
 }

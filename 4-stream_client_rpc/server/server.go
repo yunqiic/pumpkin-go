@@ -25,6 +25,7 @@ func (s *SimpleService) Route(ctx context.Context, req *pb.SimpleRequest) (*pb.S
 
 func (s *SimpleService) RouteList(srv pb.StreamClient_RouteListServer) error {
 	for {
+		log.Println("srv.Recv")
 		res, err := srv.Recv()
 		if err == io.EOF {
 			return srv.SendAndClose(&pb.SimpleResponse{Value: "ok"})
@@ -32,7 +33,6 @@ func (s *SimpleService) RouteList(srv pb.StreamClient_RouteListServer) error {
 		if err != nil {
 			return err
 		}
-		log.Println("tttttttttt")
 		log.Println(res.StreamData)
 	}
 }
