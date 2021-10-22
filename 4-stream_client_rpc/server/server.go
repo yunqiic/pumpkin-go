@@ -32,6 +32,7 @@ func (s *SimpleService) RouteList(srv pb.StreamClient_RouteListServer) error {
 		if err != nil {
 			return err
 		}
+		log.Println("tttttttttt")
 		log.Println(res.StreamData)
 	}
 }
