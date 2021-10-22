@@ -3,3 +3,6 @@
 2. add grpc test
 3. add simple grpc test
 4. add stream grpc test
+
+2021-10-22
+1. add client stream test
