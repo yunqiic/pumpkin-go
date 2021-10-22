@@ -63,6 +63,28 @@ openssl x509 -req -days 365000 \
 openssl x509 -text -noout -in test.crt
 
 go get github.com/grpc-ecosystem/go-grpc-middleware
+
+展示两个版本之间改动细节
+
+git diff sdafsfsfgf4  sdfsfdhkllg
+ 
+
+ 
+
+展示两个版本之间改动文件列表名,不展示细节
+
+git diff --name-status sdafsfsfgf4  sdfsfdhkllg
+
+Git 对比两个版本间某一个文件的变化
+先列出两个版本间发生更改的文件列表
+
+git diff commit1 commit2 --stat --name-only
+查看指定文件在两个版本间发生的变更
+
+git diff commit1 commit2 -- somefile.js
+如果感觉这种显示不够直观，可以使用 vimdiff 查看
+
+git difftool commit1 commit2 -- somefile.js
 ```
 
 ```
