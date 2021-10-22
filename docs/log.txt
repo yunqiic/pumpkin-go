@@ -30,3 +30,7 @@ See https://developers.google.com/protocol-buffers/docs/reference/go-generated#p
 --go-grpc_out: protoc-gen-go-grpc: Plugin failed with status code 1.
 
 the import path must contain at least one forward slash
+
+
+2021/10/22 17:36:55 Call Route err: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: x509: certificate relies on legacy Common Name field, use SANs instead"
+exit status 1
