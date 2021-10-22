@@ -60,4 +60,9 @@ func conversations() {
 
 		log.Println(res.Answer)
 	}
+
+	err = stream.CloseSend()
+	if err != nil {
+		log.Fatalf("Conversations close stream err: %v", err)
+	}
 }
