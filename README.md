@@ -23,51 +23,44 @@ Organizational Unit Name (eg, section) []:dev
 Common Name (eg, fully qualified host name) []:yunqiic.com
 Email Address []:admin@yunqiic.com
 
-openssl genrsa -des3 -out server.key 2048  
-grpc
+openssl ecparam -genkey -name secp384r1 -out server.key
+openssl req -new -x509 -sha256 -key server.key -out server.pem -days 3650
 
-openssl req -new -x509 -key server.key -out ca.crt -days 3650
-Country Name (2 letter code) []:CN
-State or Province Name (full name) []:Beijing
-Locality Name (eg, city) []:Beijing
-Organization Name (eg, company) []:yunqiic
-Organizational Unit Name (eg, section) []:dev
-Common Name (eg, fully qualified host name) []:*.yunqiic.com
-Email Address []:admin@yunqiic.com
+https://www.cnblogs.com/jackluo/p/13841286.html
 
-openssl req -new -key server.key -out server.csr
-Country Name (2 letter code) []:CN
-State or Province Name (full name) []:Beijing
+openssl req -new -nodes -keyout ustack.key -out ustack.csr -config openssl.cnf
+
+Country Name (2 letter code) [AU]:CN
+State or Province Name (full name) [Some-State]:Beijing
 Locality Name (eg, city) []:Beijing
-Organization Name (eg, company) []:yunqiic
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:yunqiic
 Organizational Unit Name (eg, section) []:dev
-Common Name (eg, fully qualified host name) []:*.yunqiic.com
+Common Name (e.g. server FQDN or YOUR name) []:*.yunqiic.com
 Email Address []:admin@yunqiic.com
 
 Please enter the following 'extra' attributes
 to be sent with your certificate request
 A challenge password []:grpc
+An optional company name []:yunqiic
 
-openssl genpkey -algorithm RSA -out test.key
+openssl genrsa -out ca.key 2048
 
-openssl req -new -nodes -key test.key -out test.csr -days 3650
+openssl req -x509 -new -nodes -key ca.key -subj "/CN=*.yunqiic.com" -days 3650 -out ca.crt
 
-Country Name (2 letter code) []:CN
-State or Province Name (full name) []:Beijing
-Locality Name (eg, city) []:Beijing
-Organization Name (eg, company) []:yunqiic
-Organizational Unit Name (eg, section) []:dev
-Common Name (eg, fully qualified host name) []:*.yunqiic.com
-Email Address []:admin@yunqiic.com
-
-Please enter the following 'extra' attributes
-to be sent with your certificate request
-A challenge password []:grpc 
-
-openssl x509 -req -days 365 -in test.csr -out test.pem -CA ca.crt -CAkey server.key -CAcreateserial
-
-openssl ecparam -genkey -name secp384r1 -out server.key
-openssl req -new -x509 -sha256 -key server.key -out server.pem -days 3650
+openssl req -new -sha256 \
+    -key ca.key \
+    -subj "/C=CN/ST=Beijing/L=Beijing/O=yunqiic/OU=dev/CN=*.yunqiic.com" \
+    -reqexts SAN \
+    -config <(cat /System/Library/OpenSSL/openssl.cnf \
+        <(printf "[SAN]\nsubjectAltName=DNS:*.yunqiic.com")) \
+    -out test.csr
+    
+openssl x509 -req -days 365000 \
+    -in test.csr -CA ca.crt -CAkey ca.key -CAcreateserial \
+    -extfile <(printf "subjectAltName=DNS::*.yunqiic.com") \
+    -out test.crt
+    
+openssl x509 -text -noout -in test.crt
 ```
 
 ```

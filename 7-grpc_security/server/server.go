@@ -28,7 +28,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("net.Listen err: %v", err)
 	}
-	credential, err := credentials.NewServerTLSFromFile("../pkg/tls/test.pem", "../pkg/tls/test.key")
+	credential, err := credentials.NewServerTLSFromFile("../pkg/tls/test.crt", "../pkg/tls/ca.key")
 	if err != nil {
 		log.Fatalf("Failed to generate credentials: %v", err)
 	}

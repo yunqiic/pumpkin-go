@@ -16,7 +16,7 @@ const Address string = ":8000"
 var grpcClient pb.SimpleClient
 
 func main() {
-	credential, err := credentials.NewClientTLSFromFile("../pkg/tls/test.pem", "*.yunqiic.com")
+	credential, err := credentials.NewClientTLSFromFile("../pkg/tls/test.crt", "*.yunqiic.com")
 	if err != nil {
 		log.Fatalf("Failed to create TLS credentials: %v", err)
 	}
