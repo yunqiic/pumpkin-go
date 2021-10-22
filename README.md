@@ -11,6 +11,20 @@ protoc --go_out=./ --go-grpc_out=./ ./proto/*.proto
 
 go run server.go
 go run client.go
+
+openssl genrsa -out server.key 2048
+openssl req -new -x509 -sha256 -key server.key -out server.pem
+
+Country Name (2 letter code) []:CN
+State or Province Name (full name) []:Beijing
+Locality Name (eg, city) []:Beijing
+Organization Name (eg, company) []:yunqiic
+Organizational Unit Name (eg, section) []:dev
+Common Name (eg, fully qualified host name) []:yunqiic.com
+Email Address []:admin@yunqiic.com
+
+openssl ecparam -genkey -name secp384r1 -out server.key
+openssl req -new -x509 -sha256 -key server.key -out server.pem -days 3650
 ```
 
 ```
