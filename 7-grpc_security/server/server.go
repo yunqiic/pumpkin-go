@@ -72,7 +72,7 @@ func Check(ctx context.Context) error {
 		appID = value[0]
 	}
 	if value, ok := md["app_secret"]; ok {
-		appSecret = value[1]
+		appSecret = value[0]
 	}
 	if appID != "grpc_token" || appSecret != "123456" {
 		return status.Errorf(codes.Unauthenticated, "token err: app_id=%s, app_secret=%s", appID, appSecret)
