@@ -23,7 +23,7 @@ import (
 func ProvideHTTP(endpoint string, grpcServer *grpc.Server) *http.Server {
 	ctx := context.Background()
 	//获取证书
-	creds, err := credentials.NewClientTLSFromFile("../tls/server.pem", "go-grpc-example")
+	creds, err := credentials.NewClientTLSFromFile("../tls/test.crt", "*.yunqiic.com")
 	if err != nil {
 		log.Fatalf("Failed to create TLS credentials %v", err)
 	}

@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"crypto/tls"
 	"log"
 	"net"
 
@@ -13,6 +14,7 @@ import (
 	"google.golang.org/grpc"
 
 	pb "pumpkin-go/10-grpc_gateway/proto"
+	"pumpkin-go/10-grpc_gateway/server/gateway"
 	"pumpkin-go/10-grpc_gateway/server/middleware/auth"
 	"pumpkin-go/10-grpc_gateway/server/middleware/cred"
 	"pumpkin-go/10-grpc_gateway/server/middleware/recovery"
@@ -61,5 +63,9 @@ func main() {
 	err = grpcServer.Serve(listener)
 	if err != nil {
 		log.Fatalf("grpcServer.Serve err: %v", err)
+	}
+	httpServer := gateway.ProvideHTTP(Address, grpcServer)
+	if err = httpServer.Serve(tls.NewListener(listener, httpServer.TLSConfig)); err != nil {
+		log.Fatal("ListenAndServe: ", err)
 	}
 }
