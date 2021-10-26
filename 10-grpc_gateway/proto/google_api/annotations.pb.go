@@ -97,7 +97,7 @@ func file_proto_google_api_annotations_proto_init() {
 	if File_proto_google_api_annotations_proto != nil {
 		return
 	}
-	file_pumpkin_go_10_grpc_gateway_proto_google_api_http_proto_init()
+	file_proto_google_api_http_proto_init()
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
