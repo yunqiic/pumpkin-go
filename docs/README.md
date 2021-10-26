@@ -15,3 +15,7 @@ cp -r ~/dev/go/pkg/mod/cache/download/github.com/mwitkow ~/dev/go/src/github.com
 
 cd ${GOPATH}/src/github.com/mwitkow
 git clone git@github.com:mwitkow/go-proto-validators.git
+
+go get github.com/gorilla/mux
+go get github.com/go-kratos/kratos
+go get github.com/go-kratos/kratos/v2
