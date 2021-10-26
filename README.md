@@ -16,7 +16,15 @@ protoc --proto_path=. --proto_path=${GOPATH}/src --govalidators_out=. --go_out=.
 
 go get github.com/mwitkow/go-proto-validators
 go install github.com/mwitkow/go-proto-validators/protoc-gen-govalidators
+go get github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway
+go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway
 
+go install \
+    github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway \
+    github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2 \
+    google.golang.org/protobuf/cmd/protoc-gen-go \
+    google.golang.org/grpc/cmd/protoc-gen-go-grpc
+    
 go run server.go
 go run client.go
 
