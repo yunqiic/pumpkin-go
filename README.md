@@ -21,7 +21,7 @@ protoc --proto_path=. --proto_path=../../ --go_out=../../ --go-grpc_out=../../ .
 protoc --proto_path=. --proto_path=../../ --go_out=../../ --go-grpc_out=../../ ./proto/google_api/annotations.proto
 
 protoc --proto_path=. --proto_path=../../ --proto_path=./proto --proto_path=${GOPATH}/src --govalidators_out=. --go_out=./ --go-grpc_out=./ --go-http_out=./ ./proto/*.proto
-protoc --proto_path=. --proto_path=../../ --proto_path=./proto --proto_path=${GOPATH}/src --swagger_out=logtostderr=true:./ ./proto/*.proto
+protoc --proto_path=. --proto_path=../../ --proto_path=./proto --proto_path=${GOPATH}/src --grpc-gateway_out=logtostderr=true:./ --swagger_out=logtostderr=true:./ ./proto/*.proto
 
 go get github.com/mwitkow/go-proto-validators
 go install github.com/mwitkow/go-proto-validators/protoc-gen-govalidators
