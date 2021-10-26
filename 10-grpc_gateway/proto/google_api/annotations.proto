@@ -16,7 +16,7 @@ syntax = "proto3";
 
 package google.api;
 
-import "google_api/http.proto";
+import "pumpkin-go/10-grpc_gateway/proto/google_api/http.proto";
 import "google/protobuf/descriptor.proto";
 
 option java_multiple_files = true;
