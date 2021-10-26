@@ -19,3 +19,5 @@ git clone git@github.com:mwitkow/go-proto-validators.git
 go get github.com/gorilla/mux
 go get github.com/go-kratos/kratos
 go get github.com/go-kratos/kratos/v2
+
+go get github.com/elazarl/go-bindata-assetfs

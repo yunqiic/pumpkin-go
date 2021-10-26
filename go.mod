@@ -3,7 +3,7 @@ module pumpkin-go
 go 1.13
 
 require (
-	github.com/elazarl/go-bindata-assetfs v1.0.0 // indirect
+	github.com/elazarl/go-bindata-assetfs v1.0.1 // indirect
 	github.com/go-kratos/kratos/v2 v2.1.1 // indirect
 	github.com/golang/protobuf v1.5.2
 	github.com/gorilla/mux v1.8.0 // indirect

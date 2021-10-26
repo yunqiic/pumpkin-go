@@ -61,3 +61,7 @@ Cannot use 'x' (type *InnerMessage) as the type pref.ProtoMessage Type does not 
 protoc Type does not implement
 
 go mod tidy
+
+go run server.go
+swagger/swagger.go:9:2: missing go.sum entry for module providing package github.com/elazarl/go-bindata-assetfs (imported by pumpkin-go/10-grpc_gateway/server/swagger); to add:
+	go get pumpkin-go/10-grpc_gateway/server/swagger
