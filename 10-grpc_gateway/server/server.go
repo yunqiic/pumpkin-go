@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"crypto/tls"
 	"log"
 	"net"
 
@@ -59,16 +60,16 @@ func main() {
 	)
 	pb.RegisterSimpleServer(grpcServer, &SimpleService{})
 	log.Println(Address + " net.Listing with TLS and token...")
-	err = grpcServer.Serve(listener)
+	/*err = grpcServer.Serve(listener)
 	if err != nil {
 		log.Fatalf("grpcServer.Serve err: %v", err)
-	}
+	}*/
 	httpServer := gateway.ProvideHTTP(Address, grpcServer)
-	/*if err = httpServer.Serve(tls.NewListener(listener, httpServer.TLSConfig)); err != nil {
+	if err = httpServer.Serve(tls.NewListener(listener, httpServer.TLSConfig)); err != nil {
+		log.Fatal("ListenAndServe: ", err)
+	}
+
+	/*if err = httpServer.Serve(listener); err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}*/
-
-	if err = httpServer.Serve(listener); err != nil {
-		log.Fatal("ListenAndServe: ", err)
-	}
 }

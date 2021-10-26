@@ -3,6 +3,7 @@ package gateway
 import (
 	"context"
 	"crypto/tls"
+	"google.golang.org/grpc/credentials"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -22,17 +23,17 @@ import (
 func ProvideHTTP(endpoint string, grpcServer *grpc.Server) *http.Server {
 	ctx := context.Background()
 	//获取证书
-	/*creds, err := credentials.NewClientTLSFromFile("../tls/test.crt", "*.yunqiic.com")
+	creds, err := credentials.NewClientTLSFromFile("../tls/test.crt", "*.yunqiic.com")
 	if err != nil {
 		log.Fatalf("Failed to create TLS credentials %v", err)
-	}*/
+	}
 	//添加证书
-	//dopts := []grpc.DialOption{grpc.WithTransportCredentials(creds)}
-	dopts := []grpc.DialOption{}
+	dopts := []grpc.DialOption{grpc.WithTransportCredentials(creds)}
+	//dopts := []grpc.DialOption{}
 	//新建gwmux，它是grpc-gateway的请求复用器。它将http请求与模式匹配，并调用相应的处理程序。
 	gwmux := runtime.NewServeMux()
 	//将服务的http处理程序注册到gwmux。处理程序通过endpoint转发请求到grpc端点
-	err := pb.RegisterSimpleHandlerFromEndpoint(ctx, gwmux, endpoint, dopts)
+	err = pb.RegisterSimpleHandlerFromEndpoint(ctx, gwmux, endpoint, dopts)
 	if err != nil {
 		log.Fatalf("Register Endpoint err: %v", err)
 	}
@@ -45,9 +46,9 @@ func ProvideHTTP(endpoint string, grpcServer *grpc.Server) *http.Server {
 	swagger.ServeSwaggerUI(mux)
 	log.Println(endpoint + " HTTP.Listing with TLS and token...")
 	return &http.Server{
-		Addr:    endpoint,
-		Handler: grpcHandlerFunc(grpcServer, mux),
-		//TLSConfig: getTLSConfig(),
+		Addr:      endpoint,
+		Handler:   grpcHandlerFunc(grpcServer, mux),
+		TLSConfig: getTLSConfig(),
 	}
 }
 
