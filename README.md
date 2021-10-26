@@ -9,6 +9,8 @@ protoc --go_out=./ --go-grpc_out=./ --go_opt=Msimple.proto=./ --go-grpc_opt=Msim
 
 protoc --go_out=./ --go-grpc_out=./ ./proto/*.proto
 
+go get github.com/mwitkow/go-proto-validators
+
 go run server.go
 go run client.go
 
