@@ -43,7 +43,7 @@ func ProvideHTTP(endpoint string, grpcServer *grpc.Server) *http.Server {
 	//注册swagger
 	mux.HandleFunc("/swagger/", swagger.ServeSwaggerFile)
 	swagger.ServeSwaggerUI(mux)
-	log.Println(endpoint + " HTTP.Listing whth TLS and token...")
+	log.Println(endpoint + " HTTP.Listing with TLS and token...")
 	return &http.Server{
 		Addr:    endpoint,
 		Handler: grpcHandlerFunc(grpcServer, mux),
