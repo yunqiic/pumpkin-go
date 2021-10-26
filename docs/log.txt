@@ -59,3 +59,5 @@ Cannot use (type *protoimpl.EnumInfo) as the type protoreflect.EnumType Type doe
 
 Cannot use 'x' (type *InnerMessage) as the type pref.ProtoMessage Type does not implement 'pref.ProtoMessage' need the method: ProtoReflect() Message have the method: ProtoReflect() protoreflect.Message
 protoc Type does not implement
+
+go mod tidy
