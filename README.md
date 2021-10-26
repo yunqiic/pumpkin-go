@@ -16,12 +16,10 @@ protoc --proto_path=. --proto_path=${GOPATH}/src --govalidators_out=. --go_out=.
 
 git clone git@github.com:googleapis/googleapis.git
 
-10-grpc-gateway/proto
-protoc --go_out=./ --go-grpc_out=./ ./google_api/http.proto
+10-grpc-gateway
+protoc --proto_path=. --proto_path=../../ --go_out=../../ --go-grpc_out=../../ ./proto/google_api/http.proto
 protoc --go_out=./ --go-grpc_out=./ ./google_api/annotations.proto
 
-10-grpc-gateway
-~/dev/github
 protoc --proto_path=. --proto_path=../../ --proto_path=./proto --proto_path=${GOPATH}/src --govalidators_out=. --go_out=./ --go-grpc_out=./ --go-http_out=./ ./proto/*.proto
 
 go get github.com/mwitkow/go-proto-validators
