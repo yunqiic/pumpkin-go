@@ -12,7 +12,7 @@ protoc --go_out=./ --go-grpc_out=./ ./proto/*.proto
 protoc --proto_path=. --proto_path=${GOPATH}/src --govalidators_out=. --go_out=./ --go-grpc_out=./ ./proto/*.proto
 protoc --proto_path=. --proto_path=${GOPATH}/src --go_out=./ --go-grpc_out=./ ./proto/*.proto
 
-protoc --proto_path=. --proto_path=${GOPATH}/src --govalidators_out=. --go_out=./ --go-grpc_out=./ --go-http_out=./ --openapiv2_out=./ ./proto/*.proto
+protoc --proto_path=. --proto_path=${GOPATH}/src --govalidators_out=. --go_out=./ --go-grpc_out=./ --go-http_out=./ ./proto/*.proto
 
 go get github.com/mwitkow/go-proto-validators
 go install github.com/mwitkow/go-proto-validators/protoc-gen-govalidators
