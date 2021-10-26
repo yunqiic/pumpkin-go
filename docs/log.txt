@@ -53,3 +53,9 @@ go get: installing executables with 'go get' in module mode is deprecated.
 
 
 ./proto/enum.proto: File does not reside within any path specified using --proto_path (or -I).  You must specify a --proto_path which encompasses this file.  Note that the proto_path must be an exact prefix of the .proto file names -- protoc is too dumb to figure out when two paths (e.g. absolute and relative) are equivalent (it's harder than you think).
+
+Cannot use '&file_proto_enum_proto_enumTypes[0]' (type *protoimpl.EnumInfo) as the type protoreflect.EnumType Type does not implement 'protoreflect.EnumType' need the method: New(n EnumNumber) Enum have the method: New(n pref.EnumNumber) pref.Enum
+Cannot use (type *protoimpl.EnumInfo) as the type protoreflect.EnumType Type does not implement 'protoreflect.EnumType' need the method: New(n EnumNumber) Enum have the method: New(n pref.EnumNumber) pref.Enum
+
+Cannot use 'x' (type *InnerMessage) as the type pref.ProtoMessage Type does not implement 'pref.ProtoMessage' need the method: ProtoReflect() Message have the method: ProtoReflect() protoreflect.Message
+protoc Type does not implement
