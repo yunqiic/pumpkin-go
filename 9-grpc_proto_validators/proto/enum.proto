@@ -6,11 +6,11 @@ option go_package = "/proto;proto";
 import "github.com/mwitkow/go-proto-validators/validator.proto";
 
 message SomeMsg {
-    Action do = 1 [(validator.field) = {is_in_enum: true}];
+  Action do = 1 [(validator.field) = {is_in_enum : true}];
 }
 
 enum Action {
-    ALLOW = 0;
-    DENY = 1;
-    CHILL = 2;
+  ALLOW = 0;
+  DENY = 1;
+  CHILL = 2;
 }
