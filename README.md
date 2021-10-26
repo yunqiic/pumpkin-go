@@ -16,6 +16,9 @@ protoc --proto_path=. --proto_path=${GOPATH}/src --govalidators_out=. --go_out=.
 
 git clone git@github.com:googleapis/googleapis.git
 
+10-grpc-gateway/proto/google/api
+protoc --go_out=./ --go-grpc_out=./ http.proto
+
 go get github.com/mwitkow/go-proto-validators
 go install github.com/mwitkow/go-proto-validators/protoc-gen-govalidators
 go get github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway
