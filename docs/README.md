@@ -6,4 +6,4 @@ GO111MODULE="on"
 
 go mod vendor
 
-go mod protoc can't find file
+go mod protoc File not found
