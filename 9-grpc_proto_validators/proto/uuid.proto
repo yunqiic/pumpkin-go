@@ -3,7 +3,7 @@ syntax = "proto3";
 package proto;
 option go_package = "/proto;proto";
 
-import "github.com/mwitkow/go-proto-validators/validator.proto"
+import "github.com/mwitkow/go-proto-validators/validator.proto";
 
 message UUIDMsg {
     string user_id = 1 [(validator.field) = {uuid_ver: 4, string_not_empty: true}];

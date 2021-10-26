@@ -7,3 +7,11 @@ GO111MODULE="on"
 go mod vendor
 
 go mod protoc File not found
+
+find ~/dev/go -name "go-proto-validators"
+~/dev/go/pkg/mod/cache/download/github.com/mwitkow/go-proto-validators
+
+cp -r ~/dev/go/pkg/mod/cache/download/github.com/mwitkow ~/dev/go/src/github.com
+
+cd ${GOPATH}/src/github.com/mwitkow
+git clone git@github.com:mwitkow/go-proto-validators.git
