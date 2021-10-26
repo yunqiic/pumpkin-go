@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package proto;
+
+import "github.com/mwitkow/go-proto-validators/validator.proto";
+
+message InnerMessage {
+    int32 some_integer = 1 [(validator.field) = {int_gt: 0, int_lt: 100}];
+    double some_float = 2 [(validator.field) = {float_gte: 0, float_lte: 1}];
+}
+
+message OuterMessage {
+    string important_string = 1 [(validator.field) = {regex: "^[a-z]{2,5}$"}];
+    InnerMessage inner = 2 [(validator.field) = {msg_exists: true}];
+}
+
+service Simple {
+    rpc Route (InnerMessage) returns (OuterMessage) {};
+}
