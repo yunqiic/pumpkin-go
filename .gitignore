@@ -19,3 +19,5 @@ coverage.out
 report.json
 tests_report.xml
 go.sum
+
+.DS_Store
