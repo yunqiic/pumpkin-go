@@ -34,3 +34,10 @@ the import path must contain at least one forward slash
 
 2021/10/22 17:36:55 Call Route err: rpc error: code = Unavailable desc = connection error: desc = "transport: authentication handshake failed: x509: certificate relies on legacy Common Name field, use SANs instead"
 exit status 1
+
+../../../../go/pkg/mod/github.com/grpc-ecosystem/go-grpc-middleware@v1.3.0/logging/zap/ctxzap/context.go:7:2: missing go.sum entry for module providing package go.uber.org/zap (imported by github.com/grpc-ecosystem/go-grpc-middleware/logging/zap); to add:
+	go get github.com/grpc-ecosystem/go-grpc-middleware/logging/zap@v1.3.0
+../../../../go/pkg/mod/github.com/grpc-ecosystem/go-grpc-middleware@v1.3.0/logging/zap/ctxzap/context.go:8:2: missing go.sum entry for module providing package go.uber.org/zap/zapcore (imported by github.com/grpc-ecosystem/go-grpc-middleware/logging/zap); to add:
+	go get github.com/grpc-ecosystem/go-grpc-middleware/logging/zap@v1.3.0
+middleware/zap/zap.go:7:2: missing go.sum entry for module providing package gopkg.in/natefinch/lumberjack.v2 (imported by pumpkin-go/8-go_grpc_middleware/server/middleware/zap); to add:
+	go get pumpkin-go/8-go_grpc_middleware/server/middleware/zap
