@@ -20,6 +20,6 @@ service Simple {
     rpc Route (InnerMessage) returns (OuterMessage) {
         option (google.api.http) = {
             get: "/v1/test"
-        }
+        };
     };
 }
