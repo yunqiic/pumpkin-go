@@ -4,12 +4,12 @@
 package proto
 
 import (
-	_ "/google_api"
 	fmt "fmt"
 	proto "github.com/golang/protobuf/proto"
 	_ "github.com/mwitkow/go-proto-validators"
 	github_com_mwitkow_go_proto_validators "github.com/mwitkow/go-proto-validators"
 	math "math"
+	_ "pumpkin-go/10-grpc_gateway/proto/google_api"
 	regexp "regexp"
 )
 
